@@ -21,6 +21,6 @@ jobs:
         run: npm run build
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Update the common folder content - triggered by $GITHUB_ACTOR
-          branch: $GITHUB_HEAD_REF
+          commit_message: Update the common folder content - triggered by ${GITHUB_ACTOR}
+          branch: ${GITHUB_HEAD_REF}
           file_pattern: common/*.*
