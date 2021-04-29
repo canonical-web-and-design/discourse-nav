@@ -1,7 +1,16 @@
 {
   "author": "Canonical Webteam",
   "license": "LGPL-3.0-or-later",
+  "scripts": {
+    "build-css": "sass src/common.scss:common/common.css --style=compressed --no-source-map --stop-on-error",
+    "copy-html": "cp src/*.html common",
+    "build": "npm run build-css && npm run copy-html"
+  },
   "devDependencies": {
     "eslint-config-discourse": "latest"
+  },
+  "dependencies": {
+    "sass": "1.32.12",
+    "vanilla-framework": "2.29.0"
   }
 }
