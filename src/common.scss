@@ -1,3 +1,5 @@
-// Do not change this file on the main branch!!!
+// Import the framework
+@import "node_modules/vanilla-framework/scss/vanilla";
 
-// Please select the branch coresponding to the branch you want to edit and commit your changes there
+// Base Vanilla styles
+@include vf-base;

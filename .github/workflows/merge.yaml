@@ -2,7 +2,7 @@ name: Build files
 on:
   push:
     branches:
-      - forum-snapcraft
+      - snapcraft-forum
       - ubuntu-discourse
       - maas-discourse
       - charmhub-discourse
