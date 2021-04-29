@@ -2,8 +2,8 @@
   "author": "Canonical Webteam",
   "license": "LGPL-3.0-or-later",
   "scripts": {
-    "build-css": "sass src/common.scss:common/common.css --style=compressed --no-source-map --stop-on-error",
-    "copy-html": "cp src/*.html common",
+    "build-css": "sass src/common.scss:build/common.css --style=compressed --no-source-map --stop-on-error",
+    "copy-html": "cp src/*.html build",
     "build": "npm run build-css && npm run copy-html"
   },
   "devDependencies": {

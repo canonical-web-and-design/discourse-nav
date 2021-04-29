@@ -1,4 +1,4 @@
-# This repo hosts the styling for the following discourse navigation
+# This repo hosts the styling for the following discourse navigations:
 
 - https://forum.snapcraft.io/ on the [snapcraft-forum](https://github.com/canonical-web-and-design/discourse-nav/blob/snapcraft-forum) branch
 - https://discourse.ubuntu.com/ on the [ubuntu-discourse](https://github.com/canonical-web-and-design/discourse-nav/blob/ubuntu-discourse) branch
@@ -11,9 +11,11 @@ If you have found a bug related to the navigation on the sites mentinoned above,
 
 ## How it works
 
-Discourse will read the theme from one of the branches avilable on this repo of this repo.
+Discourse will read the theme from one of the branches available on this repo. Any change in the `common` folder will apply to both mobile & desktop views. If you wish to add changes for a specific layput, you should use the `desktop` or `mobile` folder.
 
-You can read more information on [how to add a discourse theme from a grihub repo](https://meta.discourse.org/t/developer-s-guide-to-discourse-themes/93648)
+You can read more information on [how to add a discourse theme from a grihub repo](https://meta.discourse.org/t/developer-s-guide-to-discourse-themes/93648).
+
+You can find more discourse theme examplese on [GitHub](https://github.com/topics/discourse-theme-component).
 
 ## License
 
