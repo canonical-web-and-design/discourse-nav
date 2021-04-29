@@ -2,7 +2,6 @@ name: Build files
 on:
   push:
     branches:
-      - main
       - forum-snapcraft
       - ubuntu-discourse
       - maas-discourse
@@ -14,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ GITHUB_HEAD_REF }}
       - uses: actions/setup-node@v2
         with:
           node-version: 12
@@ -22,7 +23,6 @@ jobs:
         run: npm run build
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Update common folder
-          branch: snapcraft-forum
+          commit_message: Update the common folder content - triggered by ${{ GITHUB_ACTOR }}
+          branch: ${{ GITHUB_HEAD_REF }}
           file_pattern: common/*.*
-# ${{ GITHUB_HEAD_REF }}
