@@ -9,9 +9,19 @@
 
 If you have found a bug related to the navigation on the sites mentinoned above, feel free to [create a new issue](https://github.com/canonical-web-and-design/discourse-nav/issues/new/choose), or suggest a fix by [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
+## How to develop
+
+Checkout the branch that is coresponding to the discourse website you want to update.
+
+Start editing the files you need to edit in the `src` folder.
+
+Once your PR is merged, a GitHub action will run and it will update all the files in the `common` folder.
+
+_You can also run `npm run build` to build the content of the `common` folder locally, but it is not recommended to commit any file inside the `common` folder._
+
 ## How it works
 
-Discourse will read the theme from one of the branches available on this repo. Any change in the `common` folder will apply to both mobile & desktop views. If you wish to add changes for a specific layput, you should use the `desktop` or `mobile` folder.
+Discourse will read the theme from one of the branches available on this repo. Any change in the `common` folder will apply to both mobile & desktop views. If you wish to add changes for a specific layput, you should use a `desktop` or `mobile` folder.
 
 You can read more information on [how to add a discourse theme from a grihub repo](https://meta.discourse.org/t/developer-s-guide-to-discourse-themes/93648).
 
