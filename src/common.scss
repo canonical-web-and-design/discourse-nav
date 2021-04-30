@@ -1,160 +1,346 @@
-// Include all of Vanilla Framework
-@include vanilla;
+$color-text-orange: #d54110;
+$color-ubuntu-orange: #e95420;
+$discourse-logo-width: 71px;
 
+// Import the framework
+@import "../node_modules/vanilla-framework/scss/vanilla";
+
+// Base Vanilla styles
+@include vf-b-reset;
+@include vf-b-grid-definitions;
+@include vf-b-typography;
+@include vf-b-placeholders; // mandatory include
+@include vf-b-details;
+@include vf-b-lists;
+@include vf-b-button;
+
+// Vanilla components
+@include vf-p-navigation;
+@include vf-p-subnav;
+// @include vf-p-label;
+
+//Vanilla utilities
+@include vf-u-off-screen;
+
+// **************************************************************
+// Ubuntu font **************************************************
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.widget-button,
+.ember-view,
+.btn,
+.search-menu input,
+a.nav-link {
+  font-family: "Ubuntu", "Droid Sans", "Helvetica", sans-serif !important;
+}
+
+h2 {
+  font-style: normal;
+  font-weight: 100;
+}
+
+// **************************************************************
+// Vanilla navigation overrides *********************************
 .p-navigation {
-    flex-direction: column;
-    position: sticky;
-    top: 0;
+  z-index: 1001;
 
-    &.is-sticky {
-      @media screen and (min-width: $breakpoint-medium) {
-        box-shadow: 0 1px 5px 1px rgba(51, 51, 51, 0.2);
-
-        .p-navigation__row:first-child {
-          .p-navigation__nav {
-            &::after {
-              content: none;
-            }
-          }
-        }
-
-        .p-navigation__row:nth-child(2) {
-          .p-navigation__items {
-            background-color: $color-x-light;
-            position: absolute;
-            top: 0;
-          }
-        }
-      }
+  .p-navigation__item {
+    .p-navigation__link,
+    .p-navigation__link > a {
+      padding-block-end: 1rem;
+      padding-block-start: 1rem;
     }
 
-    .p-navigation__item {
-      .p-navigation__link,
-      .p-navigation__link > a {
-        padding-block-end: 1rem;
-        padding-block-start: 1rem;
-      }
-
-      & > .p-navigation__link:hover {
-        background-color: transparent;
-        color: $color-text-orange;
-      }
-
-      &.is-selected > .p-navigation__link {
-        background-color: transparent;
-        color: $color-text-orange;
-        font-weight: 500;
-      }
+    & > .p-navigation__link:hover {
+      background-color: transparent;
+      color: $color-text-orange;
     }
 
-    .p-navigation__items.is-website {
+    &.is-selected > .p-navigation__link {
+      background-color: transparent;
+      color: $color-text-orange;
       font-weight: 500;
+    }
+  }
 
-      .p-navigation__item {
-        margin-inline-end: 1rem;
-      }
-
-      .p-navigation__link {
-        color: $color-dark;
-        padding-inline-end: 0;
-        padding-inline-start: 0;
-      }
-
-      .p-navigation__item > .p-navigation__link:hover {
-        color: $color-text-orange;
-      }
-
-      .is-selected {
-        position: relative;
-
-        &::after {
-          background-color: $color-ubuntu-orange;
-          bottom: 0;
-          content: "";
-          height: 4px;
-          left: 0;
-          position: absolute;
-          width: 100%;
-          z-index: 1;
-
-          @media (max-width: $breakpoint-medium - 1px) {
-            bottom: -1px;
-          }
-        }
+  .p-navigation__items {
+    &:not(.is-logo) {
+      @media (max-width: $breakpoint-medium - 1px) {
+        display: none;
       }
     }
   }
 
-  .p-navigation__banner {
-    @media (max-width: $breakpoint-medium - 1px) {
+  .p-navigation__items.is-website {
+    font-weight: 500;
+
+    .p-navigation__item {
+      margin-inline-end: 1rem;
+    }
+
+    .p-navigation__link {
+      color: $color-dark;
+      padding-inline-end: 0;
       padding-inline-start: 0;
     }
 
-    .p-navigation__toggle--open,
-    .p-navigation__toggle--close {
-      margin: auto 0;
+    .p-navigation__item > .p-navigation__link:hover {
+      color: $color-text-orange;
     }
 
-    .p-navigation__logo {
-      background-color: $color-ubuntu-orange;
-      height: 100%;
-      margin: 0;
-      padding: 0.90625rem;
-    }
-  }
+    .is-selected {
+      position: relative;
 
-  .p-navigation__row {
-    @media (max-width: $breakpoint-medium - 1px) {
       &::after {
-        background-color: $color-mid-light;
+        background-color: $color-ubuntu-orange;
+        bottom: 0;
         content: "";
-        height: 1px;
-        left: 4.5rem;
+        height: 4px;
+        left: 0;
         position: absolute;
-        right: 0;
-        top: 55px;
-      }
-    }
+        width: 100%;
+        z-index: 1;
 
-    .p-navigation__nav {
-      margin-inline-start: 1rem;
-
-      @media (min-width: $breakpoint-medium) {
-        margin-inline-start: 1.5rem;
-        position: relative;
-
-        &::after {
-          background-color: $color-mid-x-light;
-          bottom: 0;
-          content: "";
-          height: 1px;
-          left: 0;
-          position: absolute;
-          right: 0;
-        }
-      }
-
-      @media (max-width: $breakpoint-medium - 1px) {
-        display: flex;
-        left: 4.5rem;
-        margin-inline-start: 0;
-        position: absolute;
-        top: 0;
-
-        .p-navigation__items.is-website {
-          display: flex;
+        @media (max-width: $breakpoint-medium - 1px) {
+          bottom: -1px;
         }
       }
     }
   }
+}
 
-  .p-navigation .p-navigation__item.is-logo {
+.p-navigation__banner {
+  height: 56px;
+
+  @media (max-width: $breakpoint-medium - 1px) {
+    padding-inline-start: 0;
+  }
+
+  .p-navigation__toggle--open,
+  .p-navigation__toggle--close {
+    margin: auto 0;
+
     @media (max-width: $breakpoint-medium - 1px) {
       display: none;
     }
   }
 
-  .p-navigation__image {
-    max-height: none;
-    max-width: none;
+  .p-navigation__logo {
+    background-color: $color-ubuntu-orange;
+    height: 100%;
+    margin: 0;
+    padding: 0 0.90625rem;
   }
+}
+
+.p-navigation__row {
+  @media (max-width: $breakpoint-medium - 1px) {
+    &::after {
+      background-color: $color-mid-light;
+      content: "";
+      height: 1px;
+      left: 4.5rem;
+      position: absolute;
+      right: 0;
+      top: 55px;
+    }
+  }
+
+  @media (min-width: $breakpoint-x-large) {
+    max-width: 64.5rem;
+  }
+
+  .p-navigation__nav {
+    margin-inline-start: 1rem;
+
+    @media (min-width: $breakpoint-medium) {
+      margin-inline-start: 1.5rem;
+      position: relative;
+
+      &::after {
+        background-color: $color-mid-x-light;
+        bottom: 0;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    @media (max-width: $breakpoint-medium - 1px) {
+      display: flex;
+      left: 4.5rem;
+      margin-inline-start: 0;
+      position: absolute;
+      top: 0;
+
+      .p-navigation__items.is-website {
+        display: flex;
+      }
+    }
+  }
+}
+
+.p-navigation .p-navigation__item.is-logo {
+  @media (max-width: $breakpoint-medium - 1px) {
+    display: none;
+  }
+}
+
+.p-navigation__image {
+  max-height: none;
+  max-width: none;
+}
+
+// **************************************************************
+// Vanilla subnav overrides *************************************
+.p-navigation__item.p-subnav.is-active > .p-subnav__toggle {
+  color: $color-text-orange;
+}
+
+// Fix to align the chevrons with the text
+// Remove once https://github.com/canonical-web-and-design/vanilla-framework/issues/3711 is fixed
+.p-subnav::after {
+  top: 1.25rem;
+}
+
+.p-subnav__items {
+  background-color: $color-x-light;
+  padding-block-end: 0.75rem;
+  padding-block-start: 0;
+  right: 0;
+
+  @media (min-width: $breakpoint-medium) {
+    padding-block-end: 0.5rem;
+    padding-block-start: 0.5rem;
+  }
+
+  hr {
+    background-color: $color-mid-x-light;
+    left: 1rem;
+    margin: 0.5rem 0;
+    width: calc(100% - 2rem);
+
+    @media (max-width: $breakpoint-medium - 1px) {
+      left: 2rem;
+    }
+  }
+}
+
+.p-subnav__item {
+  padding: 0.25rem 2rem;
+
+  @media (min-width: $breakpoint-medium) {
+    padding: 0.25rem 1rem;
+  }
+
+  &.is-title {
+    color: $color-mid-dark;
+    font-size: 12px;
+    font-weight: 500;
+    margin-block-end: 0;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $color-x-light;
+      color: $color-mid-dark;
+    }
+  }
+}
+
+// **************************************************************
+// Discourse nav overrides **************************************
+.d-header {
+  height: 56px !important;
+}
+
+.list-controls {
+  @media screen and (min-width: $breakpoint-large) {
+    position: absolute;
+    top: 14px;
+    z-index: 1000;
+    padding-left: calc(#{$discourse-logo-width} + 2rem);
+  }
+
+  // Force the + new topic button to stay aligned to the left
+  .btn {
+    float: none;
+  }
+}
+
+// Hide "New topic" label
+#create-topic {
+  .d-icon-plus {
+    margin-inline-end: 0;
+  }
+  .d-button-label {
+    display: none;
+  }
+}
+
+#navigation-bar {
+  padding-inline-start: 0;
+}
+
+.nav-pills > li > a {
+  font-size: 1rem !important;
+}
+
+// Fix avatar image shape
+.d-header-icons .icon img.avatar {
+  height: auto;
+}
+
+// Fix high priority icon position
+.d-header-icons .unread-high-priority-notifications {
+  right: 20px;
+}
+
+.extra-info-wrapper {
+  .header-title {
+    line-height: 1.5rem;
+  }
+
+  .topic-link {
+    width: 85%;
+  }
+}
+
+.d-header #site-logo {
+  // Set discourse logo height
+  height: 24px;
+  // Add some left paddign to align it with Canonical nav logo
+  padding-inline-start: 3px;
+}
+
+.docked {
+  .list-controls {
+    @media screen and (min-width: $breakpoint-large) {
+      position: sticky;
+    }
+  }
+}
+
+// **************************************************************
+// Discourse content overrides **************************************
+.topic-list-item .discourse-tags {
+  font-weight: 300;
+}
+
+.badge-wrapper {
+  font-weight: normal;
+}
+
+.discourse-tag.bullet::before {
+  display: none;
+}
+
+.topic-list-item.visited a.title:not(.badge-notification) {
+  color: #888;
+}
