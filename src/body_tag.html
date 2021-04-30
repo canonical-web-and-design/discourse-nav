@@ -1,3 +1,12 @@
-<!-- Do not change this file on the main branch!!! -->
-
-<!-- Please select the branch coresponding to the branch you want to edit and commit your changes there -->
+<script>
+  // Change Charmhub logo link to go to https://charmhub.io
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+      var logo = document.getElementById('site-logo');
+      if (logo) {
+        var logoLink = logo.parentNode;
+        logoLink.setAttribute('href', "https://charmhub.io");
+      }
+    }, 1);
+  });
+</script>
