@@ -121,6 +121,10 @@ h2 {
     padding-inline-start: 0;
   }
 
+  @media (min-width: $breakpoint-x-large) {
+    height: 63px;
+  }
+
   .p-navigation__toggle--open,
   .p-navigation__toggle--close {
     margin: auto 0;
@@ -317,6 +321,10 @@ h2 {
   height: 24px;
   // Add some left paddign to align it with Canonical nav logo
   padding-inline-start: 3px;
+
+  @media screen and (min-width: $breakpoint-medium) and (max-width: 1166px){
+    padding-inline-start: 1rem;
+  }
 }
 
 .docked {
