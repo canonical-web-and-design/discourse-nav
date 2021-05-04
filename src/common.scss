@@ -39,6 +39,10 @@ a.nav-link {
   font-family: "Ubuntu", "Droid Sans", "Helvetica", sans-serif !important;
 }
 
+body {
+  font-weight: 300;
+}
+
 h2 {
   font-style: normal;
   font-weight: 100;
@@ -261,15 +265,26 @@ h2 {
 // **************************************************************
 // Discourse nav overrides **************************************
 .d-header {
+  background-color: $color-x-light;
   height: 56px !important;
 }
 
 .list-controls {
+  pointer-events: none;
+
   @media screen and (min-width: $breakpoint-large) {
     position: absolute;
     top: 14px;
     z-index: 1000;
     padding-left: calc(#{$discourse-logo-width} + 2rem);
+  }
+
+  #ember15,
+  #navigation-bar,
+  #create-topic,
+  .category-breadcrumb,
+  .d-header .panel {
+    pointer-events: all;
   }
 
   // Force the + new topic button to stay aligned to the left
