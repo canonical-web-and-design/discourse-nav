@@ -361,5 +361,11 @@ h2 {
 }
 
 .topic-list-item.visited a.title:not(.badge-notification) {
-  color: #888;
+  color: $color-mid-dark;
+  font-weight: 300;
+}
+
+.topic-list-item a.title:not(.badge-notification) {
+  color: $color-dark;
+  font-weight: 400;
 }
